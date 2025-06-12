@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+   <html>
+   <head>
+       <title>Frame 1</title>
+   </head>
+   <body>
+       <h2>Frame 1</h2>
+       <textarea id="textarea1" rows="4" cols="30"></textarea><br>
+       <button onclick="copyToFrame2()">Copiar para Frame 2</button>
+
+       <script>
+           function copyToFrame2() {
+               let text = document.getElementById("textarea1").value;
+               parent.frames['frame2'].document.getElementById("textarea2").value = text;
+           }
+
+           function copyToFrame1() {
+               let text = parent.frames['frame2'].document.getElementById("textarea2").value;
+               document.getElementById("textarea1").value = text;
+           }
+       </script>
+   </body>
+   </html>
